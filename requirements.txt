@@ -1,5 +1,13 @@
 discord.py==2.3.2
-yt-dlp==2023.12.30
-PyNaCl==1.5.0
+
+yt-dlp==2024.8.6
+
+PyNaCI==1.5.0
+
 python-dotenv==1.0.0
-asyncio==3.4.3
+
+pydub==0.25.1
+
+ffmpeg-python==0.2.0
+
+opuslib==3.0.1
