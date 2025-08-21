@@ -15,7 +15,7 @@ class Music(commands.Cog):
         self.queues = {}  # Guild ID -> MusicQueue
         self.voice_clients = {}  # Guild ID -> VoiceClient
         
-        # YT-DLP options
+        # YT-DLP options - Updated for better compatibility
         self.ytdl_format_options = {
             'format': 'bestaudio/best',
             'outtmpl': '%(extractor)s-%(id)s-%(title)s.%(ext)s',
@@ -26,13 +26,18 @@ class Music(commands.Cog):
             'logtostderr': False,
             'quiet': True,
             'no_warnings': True,
-            'default_search': 'auto',
+            'default_search': 'ytsearch',
             'source_address': '0.0.0.0',
+            'extractaudio': True,
+            'audioformat': 'mp3',
+            'embed_subs': False,
+            'writesubtitles': False
         }
         
+        # FFmpeg options - Enhanced for Railway
         self.ffmpeg_options = {
             'before_options': '-reconnect 1 -reconnect_streamed 1 -reconnect_delay_max 5',
-            'options': '-vn'
+            'options': '-vn -b:a 128k'
         }
         
         self.ytdl = yt_dlp.YoutubeDL(self.ytdl_format_options)
